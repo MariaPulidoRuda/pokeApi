@@ -1,6 +1,7 @@
 import { games } from './games';
 import "../style.css";
 
+
 export const home = () => {
   const app = document.querySelector("#app");
 

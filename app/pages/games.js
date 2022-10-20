@@ -1,12 +1,37 @@
 import { getUser } from "../utils/getUser";
 import "../style.css";
+import { pokemonPage } from "./pokemonPage/pokemonPage";
 
-const name = getUser();
-// console.log(name);
+
+//creamos el botón
+
+export const btnPokeApi = () => {
+    const btnPokeMon = document.createElement("button");
+    btnPokeMon.innerText = "POKEAPI";
+    btnPokeMon.id = "pokeapi";
+    const games = document.querySelector(".games");
+    console.log(games)
+    games.appendChild(btnPokeMon)
+    btnPokeMon.addEventListener("click", pokemonPage); //hacer un contenedor con flex y met
+  };
+
+  //creamos la constante GAMES 
 
 export const games = () => {
-    const app = document.querySelector('#app');
-    app.innerHTML = `
-    <p class="saludo">Bienvenid@ ${name}</p>
-    `
+  const name = getUser();
+  const app = document.querySelector("#app");
+  app.innerHTML = `
+    <div class="games"><p class="saludo">Welcome ${name}</p>
+    </div>`;
+
+    //llamamos a la función del botón
+    btnPokeApi();
 };
+
+
+
+
+
+
+
+
