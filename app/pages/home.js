@@ -7,7 +7,7 @@ export const home = () => {
 
   app.innerHTML = `
     <div class="containerUser">
-        <p><h1>NEOLAND HUB-GAMES</h1></p>
+        <p><h2>NEOLAND HUB-GAMES</h2></p>
         <h2 class="inputUserName">Enter your name</h2>
         <input type="text" id="inputUserName">
         <button type="button" id="btnUserName">👌</button>

@@ -34,7 +34,7 @@ const catchPokemon = async () => {
       image: item.sprites.other.home.front_default,
       type: item.types[0].type.name,
       name: item.name,
-      weight: item.height,
+      weight: item.weight,
       height: item.height,
     }));
     printPokemon(mappedPokemon);
@@ -46,8 +46,9 @@ const catchPokemon = async () => {
       console.log(item);
       const template = `
             <figure class="figurePokemon">
-                <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
-                <h3 class="info-pokemon">${item.weight}</h3> 
+                <h2 class="name-pokemon" style="text-transform:uppercase">${item.name} ➾ ${item.type}</h2>
+                <h3 class="info-pokemon">Weight ⇾ ${item.weight}</h3> 
+                <h3 class="info-pokemon">Height ⇾ ${item.height}</h3> 
                 <img class="image-pokemon" src="${item.image}" alt="${item.height}"/>
             </figure>
             `;
