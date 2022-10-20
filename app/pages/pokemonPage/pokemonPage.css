@@ -1,0 +1,24 @@
+#containerPokemon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+
+}
+.figurePokemon {
+    height: 300px;
+    width: 300px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+
+}
+
+.image-pokemon {
+    height: 100px;
+    width: 100px;
+    align-self: center;
+
+}
