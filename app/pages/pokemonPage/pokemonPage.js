@@ -1,7 +1,7 @@
 export const pokemonPage = () => {
   const app = document.querySelector("#app");
   app.innerHTML = `
-        <p class="saludo">Are you ready for POKEAPI, ${name}?</p>
+        <p class="greeting">Are you ready for POKEAPI ${name}?</p>
         `;
 };
 

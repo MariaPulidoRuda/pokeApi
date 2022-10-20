@@ -21,7 +21,7 @@ export const games = () => {
   const name = getUser();
   const app = document.querySelector("#app");
   app.innerHTML = `
-    <div class="games"><p class="saludo">Welcome ${name}</p>
+    <div class="games"><p class="greeting">Welcome ${name}!</p>
     </div>`;
 
     //llamamos a la función del botón

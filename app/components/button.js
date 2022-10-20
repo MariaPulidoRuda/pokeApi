@@ -1,6 +1,8 @@
 import { randomColor } from "../utils/randomColors";
 import "../style.css";
 
+//themeBtn para estilo CSS (cambiador de color)
+
 export const btnChanger = () => {
   const themeBtn = document.createElement("button");
   themeBtn.innerText = "Change the color 🎨";

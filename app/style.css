@@ -3,10 +3,38 @@
   padding: 0;
 }
 
-
-button {
+#themeBtn { 
+  margin-top: 0px;
+  margin-right: 50px;
+  padding:1em 1.5em;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
   border-radius: 30px;
-  background-color: #ebebeb;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  float: right
+}
+
+#themeBtn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+#themeBtn:active {
+  transform: translateY(-1px);
+}
+  /*border-radius: 50px;
+  background-color: rgb(100, 132, 165);
   border: slategrey;
   color: #FFFFFF;
   text-align: center;
@@ -16,7 +44,58 @@ button {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-  float: right;
-}
-Footer
+  float: right;*/
 
+/*NO ME COGE EL ID DEL BOTÓN DE  LA POKEAPI*/
+  
+#pokeapi {
+    margin-top: 0px;
+    margin-right: 50px;
+    padding:1em 1.5em;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    float: left
+  }
+  
+  #pokeapi:hover {
+    background-color: #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  #pokeapi:active {
+    transform: translateY(-1px);
+  }
+
+
+.greeting {
+  font-family: fantasy;
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.containerUser {
+  font-family: fantasy;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 100px;
+  float: center;
+}
