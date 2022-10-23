@@ -1,12 +1,18 @@
-import "./pokemonPage.css"
+import "./pokemonPage.css";
 
-export const pokemonPage = async () => {
-  catchPokemon();
+export const pokemonPage = () => {
   const app = document.querySelector("#app");
-  app.innerHTML = `
-        <p class="greeting">Are you ready for POKEAPI ${name}?</p>
-        
-    `;
+  app.innerHTML = "";
+  catchPokemon();
+
+  const buscador = document.createElement("input");
+  buscador.id = "buscador";
+  buscador.classList.add("buscador");
+  buscador.type = "text";
+  app.appendChild(buscador);
+  const $buscador = document.querySelector("#buscador");
+  console.log($buscador);
+  document.addEventListener("input", (event) => pokeFilter(event.target.value));
 };
 
 export const divPokemon = () => {
@@ -16,19 +22,20 @@ export const divPokemon = () => {
 };
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
-
+let pokemon = [];
 const catchPokemon = async () => {
   try {
-    let pokemon = [];
+    
     for (let i = 1; i < 152; i++) {
       const response = await fetch(`${baseURL}${i}`);
       const dataJson = await response.json();
       pokemon.push(dataJson);
     }
-    transformData(pokemon);
+    const mappedPokemon = transformData(pokemon);
+    printPokemon(mappedPokemon)
   } catch (error) {
     console.log(error);
-  }
+  } }
   function transformData(list) {
     const mappedPokemon = list.map((item) => ({
       image: item.sprites.other.home.front_default,
@@ -37,13 +44,14 @@ const catchPokemon = async () => {
       weight: item.weight,
       height: item.height,
     }));
-    printPokemon(mappedPokemon);
+    //printPokemon(mappedPokemon);
+    return mappedPokemon
   }
   function printPokemon(list) {
     const container = document.querySelector("#app");
     container.innerHTML += divPokemon();
     for (const item of list) {
-      console.log(item);
+      //console.log(item);
       const template = `
             <figure class="figurePokemon">
                 <h2 class="name-pokemon" style="text-transform:uppercase">${item.name} ➾ ${item.type}</h2>
@@ -54,6 +62,26 @@ const catchPokemon = async () => {
             `;
       const box = document.querySelector("#containerPokemon");
       box.innerHTML += template;
-    }
+    
   }
 };
+
+function pokeFilter(value) {
+const filteredPokemon = pokemon.filter(p=>p.name.toUpperCase().includes(value.toUpperCase()))
+console.log(filteredPokemon)
+
+const pokemonContainer = document.querySelector("#containerPokemon")
+pokemonContainer.innerHTML = ""
+const mappedPokemon = transformData(filteredPokemon);
+printPokemon(mappedPokemon)
+  /*console.log(pokemonPage());
+  const catchPokemon = pokemonPage();
+  const mappedPokemon = catchPokemon.filter((item) =>
+    item.name.toLowerCase().includes(word.toLowerCase)
+  );
+  const container = document.querySelector(".containerPokemon");
+  container.innerHTML = " ";
+  mappedPokemon.forEach((item) => {
+    container.innerHTML += figure(item);
+  });*/
+}

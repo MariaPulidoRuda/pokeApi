@@ -10,7 +10,7 @@ export const btnPokeApi = () => {
     btnPokeMon.innerText = "POKEAPI";
     btnPokeMon.id = "pokeapi";
     const games = document.querySelector(".games");
-    console.log(games)
+    //console.log(games)
     games.appendChild(btnPokeMon)
     btnPokeMon.addEventListener("click", pokemonPage); //hacer un contenedor con flex y met
   };
