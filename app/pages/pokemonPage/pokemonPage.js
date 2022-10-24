@@ -1,25 +1,30 @@
 import "./pokemonPage.css";
 
+export const divPokemon = () => {
+  return `
+  <input type="text" id="buscador" class="buscador"/>
+    <div class="containerPokemon" id="containerPokemon"></div>
+    `;
+};
+
 export const pokemonPage = () => {
   const app = document.querySelector("#app");
   app.innerHTML = "";
   catchPokemon();
-
-  const buscador = document.createElement("input");
+  const container = document.querySelector("#app");
+  container.innerHTML += divPokemon();
+  document.addEventListener("input", (event) => pokeFilter(event.target.value));
+  /*const buscador = document.createElement("input");
   buscador.id = "buscador";
   buscador.classList.add("buscador");
   buscador.type = "text";
   app.appendChild(buscador);
   const $buscador = document.querySelector("#buscador");
-  console.log($buscador);
-  document.addEventListener("input", (event) => pokeFilter(event.target.value));
+  console.log($buscador);*/
+  
 };
 
-export const divPokemon = () => {
-  return `
-    <div class="containerPokemon" id="containerPokemon"></div>
-    `;
-};
+
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 let pokemon = [];
@@ -48,8 +53,7 @@ const catchPokemon = async () => {
     return mappedPokemon
   }
   function printPokemon(list) {
-    const container = document.querySelector("#app");
-    container.innerHTML += divPokemon();
+    
     for (const item of list) {
       //console.log(item);
       const template = `
@@ -67,7 +71,7 @@ const catchPokemon = async () => {
 };
 
 function pokeFilter(value) {
-const filteredPokemon = pokemon.filter(p=>p.name.toUpperCase().includes(value.toUpperCase()))
+const filteredPokemon = pokemon.filter(p=>p.name.toLowerCase().includes(value.toLowerCase()))
 console.log(filteredPokemon)
 
 const pokemonContainer = document.querySelector("#containerPokemon")
